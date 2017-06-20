@@ -1,8 +1,8 @@
 # pseudo-random
 
-Uses a simple Markov process to generate a new random text based on likely co-occurances in the given text.
+A simple Markov process to generate a new random text based on likely co-occurances in the given text.
 
-"Invisible Cities" provided for testing.
+Novella ["Invisible Cities"](https://www.goodreads.com/book/show/9809.Invisible_Cities) by Italo Calvino provided for testing.
 
 ### useage
 

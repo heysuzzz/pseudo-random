@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
 	my_text = TextCreator(in_list)
 
-	new_list = my_text.get_random_string('city', length=250)
+	new_list = my_text.get_random_string('the', length=100)
 
 	# writes to the provided text file
 	with open(args.output, 'w') as o:

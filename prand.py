@@ -14,23 +14,34 @@ class TextCreator(object):
 			if word not in self.unique_words:
 				self.unique_words.append(word)
 
+		self.following_words_cache = {'xxstartxx': ['the', 'city']}
+
+
 	def get_following_word(self, target_word):
+		# if the word has already been given a prob dist, just look it up from the cache
+		if target_word in self.following_words_cache:
+			return random.choice(self.following_words_cache[target_word])
+
 		# gets the indexes of all words following the target word
-		following_indexes = []
-		for i, word in self.word_indexes:
-			if word == target_word:
-				following_indexes.append(i + 1)
+		else:
+			following_indexes = []
+			for i, word in self.word_indexes:
+				if word == target_word:
+					following_indexes.append(i + 1)
 
-		# gets words associated with the indexes
-		following_words = []		
-		for (i, word) in self.word_indexes:
-			if i in following_indexes:
-				following_words.append(word)
+			# gets words associated with the indexes
+			following_words = []		
+			for (i, word) in self.word_indexes:
+				if i in following_indexes:
+					following_words.append(word)
 
-		# returns a random word, following the actual distribution of following words
-		return random.choice(following_words)
+			# returns a random word, following the actual distribution of following words
+			self.following_words_cache[target_word] = following_words
 
-	def get_random_string(self, seed, length=100):
+			return random.choice(following_words)
+
+
+	def get_random_string(self, seed, length):
 		count = 0
 		words = []
 		while count < length:
@@ -40,7 +51,7 @@ class TextCreator(object):
 			count += 1
 
 		return words
-
+##### after finding the prob dist for a given word, must cache that prob dist to speed up future searches!!!
 
 if __name__ == '__main__':
 	
@@ -58,7 +69,8 @@ if __name__ == '__main__':
 
 	my_text = TextCreator(in_list)
 
-	new_list = my_text.get_random_string('the', length=100)
+	# edit this to create a new starting "seed" word and an utterance length
+	new_list = my_text.get_random_string('xxstartxx', length=100)
 
 	# writes to the provided text file
 	with open(args.output, 'w') as o:

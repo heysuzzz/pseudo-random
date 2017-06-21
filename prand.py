@@ -70,7 +70,7 @@ if __name__ == '__main__':
 	my_text = TextCreator(in_list)
 
 	# edit this to create a new starting "seed" word and an utterance length
-	new_list = my_text.get_random_string('xxstartxx', length=100)
+	new_list = my_text.get_random_string('xxstartxx', length=500)
 
 	# writes to the provided text file
 	with open(args.output, 'w') as o:

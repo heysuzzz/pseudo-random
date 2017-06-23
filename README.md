@@ -6,4 +6,4 @@ Book of Genesis and the novella ["Invisible Cities"](https://www.goodreads.com/b
 
 ### useage
 
-`./prand.py -i /path/to/input-file -o /path/to/output-file`
+`./prand.py -i /path/to/input-file -o /path/to/output-file -w number-of-words`

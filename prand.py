@@ -56,8 +56,10 @@ class TextCreator(object):
 if __name__ == '__main__':
 	
 	parser = argparse.ArgumentParser(description='generate pseudo-random text')
-	parser.add_argument('-i', '--input', help='input text file',type=str, required=True)
+	parser.add_argument('-i', '--input', help='input text file', type=str, required=True)
 	parser.add_argument('-o', '--output', help='output text file', type=str, required=True)
+	parser.add_argument('-w', '--words', help='number of words to produce', type=str, required=True)
+
 	args = parser.parse_args()
 
 	# reads the text file from the terminal
@@ -69,8 +71,8 @@ if __name__ == '__main__':
 
 	my_text = TextCreator(in_list)
 
-	# edit this to create a new starting "seed" word and an utterance length
-	new_list = my_text.get_random_string('xxstartxx', length=500)
+	# edit this to create a new starting "seed" word
+	new_list = my_text.get_random_string('xxstartxx', length=int(args.words))
 
 	# writes to the provided text file
 	with open(args.output, 'w') as o:

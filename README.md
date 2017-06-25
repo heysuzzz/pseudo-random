@@ -11,3 +11,10 @@ Book of Genesis and the novella ["Invisible Cities"](https://www.goodreads.com/b
 ex
 
 `./prand.py -i invisible-cities -o myOutpuy -w 25`
+
+### to-do
+- [ ] use set instead of list to speed up cache process
+- [ ] import "Genesis" and "Invisible Cities" prob distributions as modules, so that they are pre-compiled as .pyc files
+- [ ] add "blend" function to combine two sources (e.g. "Genesis" and "Invisible Cities") to create joint weighted prob dist.
+
+
